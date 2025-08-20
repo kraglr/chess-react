@@ -786,9 +786,10 @@ const App = () => {
     (row, col) => {
       const piece = board[row][col];
       const isLightSquare = (row + col) % 2 === 0;
-      const squareColorClass = isLightSquare ? "bg-gray-200" : "bg-gray-700"; // Light and dark squares
+      const squareColorClass = isLightSquare ? "bg-[#ebecd0]" : "bg-gray-700";
+      const pieceColor = getPieceColor(piece);
       const pieceColorClass =
-        getPieceColor(piece) === "white" ? "text-white" : "text-black"; // Piece color
+        pieceColor === "white" ? "text-white" : "text-black";
       const isSelected =
         selectedPiece && selectedPiece[0] === row && selectedPiece[1] === col;
       const isLegalMoveTarget = legalMoves.some(
@@ -798,6 +799,8 @@ const App = () => {
       const selectedClass = isSelected
         ? "ring-4 ring-blue-500 ring-offset-1"
         : ""; // Highlight selected square
+      const pieceOutlineClass =
+        pieceColor === "white" ? "piece-outline-black" : "piece-outline-white";
       const legalMoveClass = isLegalMoveTarget
         ? piece
           ? "ring-4 ring-red-500 ring-offset-1"
@@ -808,6 +811,11 @@ const App = () => {
       const isKingSquare = kingPos && kingPos[0] === row && kingPos[1] === col;
       const checkHighlightClass =
         isInCheck && isKingSquare ? "bg-red-500/70" : ""; // Highlight king in check
+
+      // Label color based on square color for contrast
+      const labelColorClass = isLightSquare
+        ? "text-gray-700/80"
+        : "text-gray-300/80";
 
       return (
         <div
@@ -821,9 +829,27 @@ const App = () => {
           role="button"
           aria-label={`Square ${String.fromCharCode(97 + col)}${8 - row}`}
         >
+          {/* Rank and File Labels */}
+          {col === 0 && (
+            <span
+              className={`absolute top-0.5 left-1 text-xs md:text-sm font-bold select-none ${labelColorClass}`}
+            >
+              {8 - row}
+            </span>
+          )}
+          {row === 7 && (
+            <span
+              className={`absolute bottom-0.5 right-1 text-xs md:text-sm font-bold select-none ${labelColorClass}`}
+            >
+              {String.fromCharCode(97 + col)}
+            </span>
+          )}
+
           {/* Render the piece if it exists */}
           {piece && (
-            <span className={`${pieceColorClass} drop-shadow-md`}>
+            <span
+              className={`${pieceColorClass} ${pieceOutlineClass} drop-shadow-md`}
+            >
               {pieceSymbols[piece]}
             </span>
           )}

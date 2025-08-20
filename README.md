@@ -8,6 +8,7 @@ A modern and interactive chess application built with React, Vite, and Tailwind 
 - **Standard Chess Rules**: All standard chess moves and rules are enforced.
 - **Move Validation**: Highlights valid moves for the selected piece.
 - **Responsive Design**: Play on any screen size, from desktop to mobile.
+- **Coordinate Display**: Shows rank and file labels on the board for easy navigation.
 
 ## Tech Stack
 

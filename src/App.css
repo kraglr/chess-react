@@ -41,3 +41,16 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Custom styles for piece outlines */
+.piece-outline-white {
+  text-shadow: -1.5px -1.5px 0 #fff, 1.5px -1.5px 0 #fff, -1.5px 1.5px 0 #fff,
+    1.5px 1.5px 0 #fff, -1.5px 0 0 #fff, 1.5px 0 0 #fff, 0 -1.5px 0 #fff,
+    0 1.5px 0 #fff;
+}
+
+.piece-outline-black {
+  text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000,
+    1.5px 1.5px 0 #000, -1.5px 0 0 #000, 1.5px 0 0 #000, 0 -1.5px 0 #000,
+    0 1.5px 0 #000;
+}
