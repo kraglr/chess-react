@@ -1,6 +1,8 @@
 # ChessApp
 
-A modern and interactive chess application built with React, Vite, and Tailwind CSS. This application allows you to play chess against a friend on the same computer.
+Welcome to **ChessApp**, a sleek and modern web-based chess game designed for two players on the same computer. Built with a powerful stack including **React**, **Vite**, and **Tailwind CSS**, this project aims to provide a smooth, interactive, and visually appealing chess-playing experience right in your browser.
+
+This application is perfect for a quick match with a friend, featuring a responsive design, intuitive controls, and clear visual feedback for every move, including highlights for legal moves and checks.
 
 ## Features
 
